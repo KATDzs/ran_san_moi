@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 250">
+  <defs>
+    <linearGradient id="mBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="mGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d2ff"/>
+      <stop offset="100%" style="stop-color:#7b2ff7"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="250" rx="12" fill="url(#mBg)"/>
+
+  <text x="300" y="35" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="url(#mGrad)">Chế Độ Chơi</text>
+
+  <!-- Classic Mode -->
+  <rect x="30" y="55" width="250" height="170" rx="10" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="155" y="85" text-anchor="middle" font-family="Arial" font-size="24">🧱</text>
+  <text x="155" y="110" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#00d2ff">Classic Mode</text>
+  <text x="155" y="135" text-anchor="middle" font-family="Arial" font-size="11" fill="#a0a0b0">Chạm tường = Thua</text>
+
+  <!-- Classic illustration: wall collision -->
+  <rect x="60" y="150" width="190" height="55" rx="4" fill="#0a0a15" stroke="#2a2a4a" stroke-width="0.5"/>
+  <g opacity="0.5">
+    <rect x="65" y="155" width="180" height="1" fill="#ff5252"/>
+    <rect x="65" y="200" width="180" height="1" fill="#ff5252"/>
+    <rect x="65" y="155" width="1" height="46" fill="#ff5252"/>
+    <rect x="244" y="155" width="1" height="46" fill="#ff5252"/>
+  </g>
+  <!-- Snake hitting wall -->
+  <rect x="100" y="170" width="12" height="12" rx="2" fill="#00a844"/>
+  <rect x="114" y="170" width="12" height="12" rx="2" fill="#00c853"/>
+  <rect x="128" y="170" width="12" height="12" rx="2" fill="#00c853"/>
+  <rect x="142" y="170" width="12" height="12" rx="2" fill="#00c853"/>
+  <rect x="156" y="170" width="12" height="12" rx="2" fill="#00c853"/>
+  <rect x="170" y="170" width="12" height="12" rx="2" fill="#00e676"/>
+  <!-- Collision marker -->
+  <text x="190" y="182" font-family="Arial" font-size="14" fill="#ff5252">💥</text>
+
+  <!-- Wrap Mode -->
+  <rect x="320" y="55" width="250" height="170" rx="10" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="445" y="85" text-anchor="middle" font-family="Arial" font-size="24">🔄</text>
+  <text x="445" y="110" text-anchor="middle" font-family="Arial" font-size="16" font-weight="bold" fill="#7b2ff7">Wrap Mode</text>
+  <text x="445" y="135" text-anchor="middle" font-family="Arial" font-size="11" fill="#a0a0b0">Xuyên tường sang phía đối diện</text>
+
+  <!-- Wrap illustration -->
+  <rect x="350" y="150" width="190" height="55" rx="4" fill="#0a0a15" stroke="#2a2a4a" stroke-width="0.5"/>
+  <g opacity="0.3">
+    <rect x="355" y="155" width="180" height="1" fill="#7b2ff7"/>
+    <rect x="355" y="200" width="180" height="1" fill="#7b2ff7"/>
+    <rect x="355" y="155" width="1" height="46" fill="#7b2ff7" stroke-dasharray="3,3"/>
+    <rect x="534" y="155" width="1" height="46" fill="#7b2ff7" stroke-dasharray="3,3"/>
+  </g>
+  <!-- Snake going through -->
+  <rect x="520" y="170" width="12" height="12" rx="2" fill="#00e676"/>
+  <!-- Arrow showing wrap -->
+  <text x="476" y="182" font-family="Arial" font-size="10" fill="#7b2ff7">→ → →</text>
+  <!-- Snake appearing on other side -->
+  <rect x="358" y="170" width="12" height="12" rx="2" fill="#00e676" opacity="0.5"/>
+  <text x="375" y="182" font-family="Arial" font-size="10" fill="#7b2ff7">→</text>
+
+  <rect x="1" y="1" width="598" height="248" rx="11" fill="none" stroke="#2a2a4a" stroke-width="1"/>
+</svg>

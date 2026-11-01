@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web Game Rắn Săn Mồi - Snake Game built with Java Spring Boot">
+    <title th:text="${gameName} + ' v' + ${gameVersion}">Rắn Săn Mồi</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" th:href="@{/images/favicon.svg}" type="image/svg+xml">
+</head>
+<body>
+    <!-- Header -->
+    <header class="game-header">
+        <div class="header-content">
+            <div class="logo">
+                <span class="logo-icon">🐍</span>
+                <h1 th:text="${gameName}">Rắn Săn Mồi</h1>
+            </div>
+            <div class="header-controls">
+                <button id="btn-sound" class="btn-icon" title="Bật/Tắt âm thanh">
+                    <span id="sound-icon">🔊</span>
+                </button>
+                <span class="version-tag" th:text="'v' + ${gameVersion}">v1.0.0</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="game-main">
+        <div class="game-layout">
+            <!-- Game Canvas Area -->
+            <div class="game-area">
+                <div class="canvas-wrapper">
+                    <canvas id="game-canvas" width="400" height="400"></canvas>
+
+                    <!-- Start Overlay -->
+                    <div id="overlay-start" class="overlay active">
+                        <div class="overlay-content">
+                            <div class="overlay-icon">🐍</div>
+                            <h2>Rắn Săn Mồi</h2>
+                            <p class="overlay-subtitle">Trò chơi rắn săn mồi kinh điển</p>
+                            <button id="btn-start" class="btn btn-primary btn-large">
+                                ▶ Bắt Đầu Chơi
+                            </button>
+                            <p class="overlay-hint">Nhấn <kbd>Space</kbd> hoặc <kbd>Enter</kbd> để bắt đầu</p>
+                        </div>
+                    </div>
+
+                    <!-- Pause Overlay -->
+                    <div id="overlay-pause" class="overlay">
+                        <div class="overlay-content">
+                            <div class="overlay-icon">⏸️</div>
+                            <h2>Tạm Dừng</h2>
+                            <p class="overlay-subtitle">Game đang tạm dừng</p>
+                            <button id="btn-resume" class="btn btn-primary">
+                                ▶ Tiếp Tục
+                            </button>
+                            <p class="overlay-hint">Nhấn <kbd>Space</kbd> hoặc <kbd>P</kbd> để tiếp tục</p>
+                        </div>
+                    </div>
+
+                    <!-- Game Over Overlay -->
+                    <div id="overlay-gameover" class="overlay">
+                        <div class="overlay-content">
+                            <div class="overlay-icon">💀</div>
+                            <h2>Game Over!</h2>
+                            <div class="gameover-stats">
+                                <div class="stat-item">
+                                    <span class="stat-label">Điểm số</span>
+                                    <span id="final-score" class="stat-value">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Kỷ lục</span>
+                                    <span id="final-highscore" class="stat-value">0</span>
+                                </div>
+                                <div class="stat-item">
+                                    <span class="stat-label">Chiều dài</span>
+                                    <span id="final-length" class="stat-value">0</span>
+                                </div>
+                            </div>
+                            <div id="new-record" class="new-record hidden">
+                                🏆 Kỷ Lục Mới!
+                            </div>
+                            <button id="btn-restart" class="btn btn-primary btn-large">
+                                🔄 Chơi Lại
+                            </button>
+                            <p class="overlay-hint">Nhấn <kbd>Space</kbd> hoặc <kbd>Enter</kbd> để chơi lại</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Side Panel -->
+            <div class="side-panel">
+                <!-- Score Card -->
+                <div class="card score-card">
+                    <div class="card-header">
+                        <span class="card-icon">🏆</span>
+                        <h3>Bảng Điểm</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="score-display">
+                            <div class="score-item">
+                                <span class="score-label">Điểm hiện tại</span>
+                                <span id="current-score" class="score-value current">0</span>
+                            </div>
+                            <div class="score-item">
+                                <span class="score-label">Điểm cao nhất</span>
+                                <span id="high-score" class="score-value high">0</span>
+                            </div>
+                            <div class="score-item">
+                                <span class="score-label">Chiều dài rắn</span>
+                                <span id="snake-length" class="score-value">3</span>
+                            </div>
+                            <div class="score-item">
+                                <span class="score-label">Tốc độ</span>
+                                <span id="game-speed" class="score-value">1</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Card -->
+                <div class="card settings-card">
+                    <div class="card-header">
+                        <span class="card-icon">⚙️</span>
+                        <h3>Cài Đặt</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="setting-group">
+                            <label class="setting-label">Chế độ chơi</label>
+                            <div class="btn-group" id="mode-selector">
+                                <button class="btn btn-option active" data-mode="classic">
+                                    🧱 Classic
+                                </button>
+                                <button class="btn btn-option" data-mode="wrap">
+                                    🔄 Wrap
+                                </button>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label class="setting-label">Độ khó</label>
+                            <div class="btn-group" id="difficulty-selector">
+                                <button class="btn btn-option" data-difficulty="easy">
+                                    😊 Dễ
+                                </button>
+                                <button class="btn btn-option active" data-difficulty="normal">
+                                    😐 Thường
+                                </button>
+                                <button class="btn btn-option" data-difficulty="hard">
+                                    😈 Khó
+                                </button>
+                            </div>
+                        </div>
+                        <div class="setting-group">
+                            <label class="setting-label">Giao diện</label>
+                            <div class="btn-group" id="theme-selector">
+                                <button class="btn btn-option active" data-theme="dark">
+                                    🌙 Tối
+                                </button>
+                                <button class="btn btn-option" data-theme="light">
+                                    ☀️ Sáng
+                                </button>
+                                <button class="btn btn-option" data-theme="retro">
+                                    👾 Retro
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Controls Card -->
+                <div class="card controls-card">
+                    <div class="card-header">
+                        <span class="card-icon">🎮</span>
+                        <h3>Điều Khiển</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="controls-grid">
+                            <div class="control-row">
+                                <kbd>↑</kbd> <kbd>W</kbd>
+                                <span>Di chuyển lên</span>
+                            </div>
+                            <div class="control-row">
+                                <kbd>↓</kbd> <kbd>S</kbd>
+                                <span>Di chuyển xuống</span>
+                            </div>
+                            <div class="control-row">
+                                <kbd>←</kbd> <kbd>A</kbd>
+                                <span>Di chuyển trái</span>
+                            </div>
+                            <div class="control-row">
+                                <kbd>→</kbd> <kbd>D</kbd>
+                                <span>Di chuyển phải</span>
+                            </div>
+                            <div class="control-row">
+                                <kbd>Space</kbd> <kbd>P</kbd>
+                                <span>Tạm dừng / Tiếp tục</span>
+                            </div>
+                            <div class="control-row">
+                                <kbd>M</kbd>
+                                <span>Bật/Tắt âm thanh</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Status Card -->
+                <div class="card status-card">
+                    <div class="card-header">
+                        <span class="card-icon">📊</span>
+                        <h3>Trạng Thái</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="status-item">
+                            <span class="status-label">Trạng thái:</span>
+                            <span id="game-status" class="status-badge idle">Chờ bắt đầu</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Chế độ:</span>
+                            <span id="current-mode" class="status-value">Classic</span>
+                        </div>
+                        <div class="status-item">
+                            <span class="status-label">Độ khó:</span>
+                            <span id="current-difficulty" class="status-value">Thường</span>
+                        </div>
+                        <button id="btn-reset-scores" class="btn btn-danger btn-small">
+                            🗑️ Xóa điểm cao
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="game-footer">
+        <p>🐍 Rắn Săn Mồi &mdash; Web Game bằng Java Spring Boot &amp; HTML5 Canvas</p>
+    </footer>
+
+    <!-- JavaScript Modules -->
+    <script th:src="@{/js/core/constants.js}"></script>
+    <script th:src="@{/js/utils/helpers.js}"></script>
+    <script th:src="@{/js/entities/snake.js}"></script>
+    <script th:src="@{/js/entities/food.js}"></script>
+    <script th:src="@{/js/managers/input-manager.js}"></script>
+    <script th:src="@{/js/managers/sound-manager.js}"></script>
+    <script th:src="@{/js/managers/state-manager.js}"></script>
+    <script th:src="@{/js/managers/score-manager.js}"></script>
+    <script th:src="@{/js/core/renderer.js}"></script>
+    <script th:src="@{/js/core/collision.js}"></script>
+    <script th:src="@{/js/core/game-engine.js}"></script>
+    <script th:src="@{/js/app.js}"></script>
+</body>
+</html>

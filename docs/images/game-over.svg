@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350">
+  <defs>
+    <linearGradient id="bgGo" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+    <linearGradient id="goGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#00d2ff"/>
+      <stop offset="100%" style="stop-color:#7b2ff7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="350" rx="12" fill="url(#bgGo)"/>
+
+  <!-- Overlay blur effect -->
+  <rect width="500" height="350" rx="12" fill="rgba(0,0,0,0.6)"/>
+
+  <!-- Game Over content -->
+  <text x="250" y="60" text-anchor="middle" font-family="Arial" font-size="36" fill="white">💀</text>
+  <text x="250" y="105" text-anchor="middle" font-family="Arial" font-size="32" font-weight="bold" fill="url(#goGrad)">Game Over!</text>
+
+  <!-- Stats -->
+  <g transform="translate(80, 130)">
+    <!-- Score -->
+    <g transform="translate(0, 0)">
+      <text x="55" y="15" text-anchor="middle" font-family="Arial" font-size="10" fill="#6c6c80" text-transform="uppercase">ĐIỂM SỐ</text>
+      <text x="55" y="50" text-anchor="middle" font-family="Arial" font-size="30" font-weight="bold" fill="#00d2ff">280</text>
+    </g>
+
+    <!-- High Score -->
+    <g transform="translate(120, 0)">
+      <text x="55" y="15" text-anchor="middle" font-family="Arial" font-size="10" fill="#6c6c80" text-transform="uppercase">KỶ LỤC</text>
+      <text x="55" y="50" text-anchor="middle" font-family="Arial" font-size="30" font-weight="bold" fill="#00d2ff">350</text>
+    </g>
+
+    <!-- Length -->
+    <g transform="translate(240, 0)">
+      <text x="55" y="15" text-anchor="middle" font-family="Arial" font-size="10" fill="#6c6c80" text-transform="uppercase">CHIỀU DÀI</text>
+      <text x="55" y="50" text-anchor="middle" font-family="Arial" font-size="30" font-weight="bold" fill="#00d2ff">31</text>
+    </g>
+  </g>
+
+  <!-- New Record -->
+  <text x="250" y="220" text-anchor="middle" font-family="Arial" font-size="18" font-weight="bold" fill="#ffd740">🏆 Kỷ Lục Mới!</text>
+
+  <!-- Restart button -->
+  <rect x="155" y="245" width="190" height="44" rx="8" fill="url(#goGrad)"/>
+  <text x="250" y="273" text-anchor="middle" font-family="Arial" font-size="15" font-weight="bold" fill="white">🔄 Chơi Lại</text>
+
+  <!-- Hint -->
+  <text x="250" y="320" text-anchor="middle" font-family="Arial" font-size="11" fill="#6c6c80">Nhấn Space hoặc Enter để chơi lại</text>
+
+  <!-- Border -->
+  <rect x="1" y="1" width="498" height="348" rx="11" fill="none" stroke="#2a2a4a" stroke-width="1"/>
+</svg>

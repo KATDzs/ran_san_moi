@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="archBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f1a"/>
+      <stop offset="100%" style="stop-color:#1a1a2e"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" rx="8" fill="url(#archBg)"/>
+
+  <!-- Title -->
+  <text x="400" y="35" text-anchor="middle" font-family="Arial" font-size="20" font-weight="bold" fill="#00d2ff">Kiến Trúc Hệ Thống - Rắn Săn Mồi</text>
+
+  <!-- Browser / Client -->
+  <rect x="250" y="55" width="300" height="50" rx="8" fill="#16213e" stroke="#00d2ff" stroke-width="1.5"/>
+  <text x="400" y="85" text-anchor="middle" font-family="Arial" font-size="14" font-weight="bold" fill="#e0e0e0">🌐 Trình Duyệt (Client)</text>
+
+  <!-- Arrow down -->
+  <line x1="400" y1="105" x2="400" y2="135" stroke="#00d2ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00d2ff"/>
+    </marker>
+  </defs>
+
+  <!-- Frontend Layer -->
+  <rect x="50" y="140" width="700" height="160" rx="8" fill="rgba(22,33,62,0.5)" stroke="#7b2ff7" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="70" y="162" font-family="Arial" font-size="11" font-weight="bold" fill="#7b2ff7">FRONTEND (HTML5 + CSS3 + JavaScript)</text>
+
+  <!-- Frontend modules -->
+  <rect x="70" y="175" width="110" height="50" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="125" y="195" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#00e676">🎮 GameEngine</text>
+  <text x="125" y="210" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Game Loop</text>
+
+  <rect x="195" y="175" width="95" height="50" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="242" y="195" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#00e676">🐍 Snake</text>
+  <text x="242" y="210" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Entity</text>
+
+  <rect x="305" y="175" width="80" height="50" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="345" y="195" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#ff5252">🍎 Food</text>
+  <text x="345" y="210" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Entity</text>
+
+  <rect x="400" y="175" width="95" height="50" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="447" y="195" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#ffd740">🎨 Renderer</text>
+  <text x="447" y="210" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Canvas</text>
+
+  <rect x="510" y="175" width="95" height="50" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="557" y="195" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#ffd740">💥 Collision</text>
+  <text x="557" y="210" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Logic</text>
+
+  <rect x="620" y="175" width="110" height="50" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="675" y="195" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#ffd740">⌨️ Input</text>
+  <text x="675" y="210" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Manager</text>
+
+  <!-- Second row -->
+  <rect x="70" y="240" width="110" height="45" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="125" y="260" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#ffd740">📊 State</text>
+  <text x="125" y="275" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Manager</text>
+
+  <rect x="195" y="240" width="110" height="45" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="250" y="260" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#ffd740">🏆 Score</text>
+  <text x="250" y="275" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Manager</text>
+
+  <rect x="320" y="240" width="110" height="45" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="375" y="260" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#ffd740">🔊 Sound</text>
+  <text x="375" y="275" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Manager</text>
+
+  <rect x="445" y="240" width="110" height="45" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="500" y="260" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#ffd740">⚡ Constants</text>
+  <text x="500" y="275" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Config</text>
+
+  <rect x="570" y="240" width="110" height="45" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="625" y="260" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#ffd740">🔧 Helpers</text>
+  <text x="625" y="275" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Utils</text>
+
+  <!-- Arrow REST API -->
+  <line x1="250" y1="300" x2="250" y2="335" stroke="#00d2ff" stroke-width="2" marker-end="url(#arrow)"/>
+  <text x="280" y="322" font-family="Arial" font-size="9" fill="#00d2ff">REST API</text>
+
+  <line x1="550" y1="300" x2="550" y2="335" stroke="#ffd740" stroke-width="1.5" stroke-dasharray="4,4"/>
+  <text x="580" y="322" font-family="Arial" font-size="9" fill="#ffd740">localStorage</text>
+
+  <!-- Backend Layer -->
+  <rect x="50" y="340" width="700" height="145" rx="8" fill="rgba(22,33,62,0.5)" stroke="#00e676" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="70" y="362" font-family="Arial" font-size="11" font-weight="bold" fill="#00e676">BACKEND (Java 17 + Spring Boot 3)</text>
+
+  <!-- Backend modules -->
+  <rect x="70" y="375" width="130" height="45" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="135" y="395" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#00d2ff">🌐 Controllers</text>
+  <text x="135" y="410" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">API + Page</text>
+
+  <rect x="215" y="375" width="120" height="45" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="275" y="395" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#00d2ff">⚙️ Services</text>
+  <text x="275" y="410" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Business Logic</text>
+
+  <rect x="350" y="375" width="100" height="45" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="400" y="395" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#00d2ff">📦 DTOs</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Data Transfer</text>
+
+  <rect x="465" y="375" width="100" height="45" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="515" y="395" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#00d2ff">📋 Models</text>
+  <text x="515" y="410" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Domain</text>
+
+  <rect x="580" y="375" width="150" height="45" rx="6" fill="#16213e" stroke="#2a2a4a"/>
+  <text x="655" y="395" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold" fill="#00d2ff">🔧 Config</text>
+  <text x="655" y="410" text-anchor="middle" font-family="Arial" font-size="8" fill="#a0a0b0">Game + Web + CORS</text>
+
+  <!-- Future expansion note -->
+  <rect x="70" y="430" width="660" height="28" rx="4" fill="rgba(255,215,64,0.08)" stroke="#ffd740" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <text x="400" y="449" text-anchor="middle" font-family="Arial" font-size="10" fill="#ffd740">🔮 Mở rộng: JPA/DB • Redis Cache • WebSocket • Docker • CI/CD • Authentication</text>
+
+  <!-- Border -->
+  <rect x="1" y="1" width="798" height="498" rx="7" fill="none" stroke="#2a2a4a" stroke-width="1"/>
+</svg>
